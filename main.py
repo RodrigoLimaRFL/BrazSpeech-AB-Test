@@ -36,6 +36,19 @@ def index():
     return redirect(url_for('main.login'))
 
 
+@main.route('/xab')
+def xab():
+    return render_template('xab.html', 
+                           audio_file_x = '/audio/audio_x.wav',
+                           audio_file_a = '/audio/audio_a.wav',
+                           audio_file_b = '/audio/audio_b.wav',)
+
+
+@main.route('/mos')
+def mos():
+    return render_template('mos.html', audio_file = '/audio/audio_x.wav',)
+
+
 @main.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':

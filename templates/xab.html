@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block head %} {{ super() }} 
+<link href="{{ url_for('static', filename='styles/xab.css') }}" rel="stylesheet">
+{% endblock %} 
+{% block content %}
+
+<div id="audio-number">
+    <h1> Áudio 1 de 100</h1>
+</div>
+
+<div id="audio-container-x">
+    <h2>Áudio de Referência</h2>
+
+    <audio id="audio-x" controls>
+      <source src="{{ url_for('static', filename=audio_file_x) }}" type="audio/wav" media="(min-width: 900px)"
+        preload />
+    </audio>
+</div>
+
+<div id="container-test-audios">
+
+    <div id="audio-container-a">
+        <h2>Áudio A</h2>
+
+        <audio id="audio-a" controls>
+        <source src="{{ url_for('static', filename=audio_file_a) }}" type="audio/wav" media="(min-width: 900px)"
+            preload />
+        </audio>
+    </div>
+
+    <div id="audio-container-b">
+        <h2>Áudio B</h2>
+
+        <audio id="audio-b" controls>
+        <source src="{{ url_for('static', filename=audio_file_b) }}" type="audio/wav" media="(min-width: 900px)"
+            preload />
+        </audio>
+    </div>
+
+</div>
+
+<div id="question">
+    <h3> Qual áudio tem o sotaque mais parecido com o áudio de referência? </h3>
+    <div class="answer">
+        <h3> A </h3>
+        <label for="a">
+            <input type="radio" class="radio-answer" id="a" name="radio-group">
+        </label>
+    </div>
+    <div class="answer">
+        <h3> B </h3>
+        <label for="b">
+            <input type="radio" class="radio-answer" id="b" name="radio-group">
+        </label>
+    </div>  
+
+    <div id="button-container">
+        <button id="send-button" class="button" onclick=""> Enviar </button>
+    </div>
+</div>
+{% endblock %}

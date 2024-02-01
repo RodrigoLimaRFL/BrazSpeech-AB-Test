@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block head %} {{ super() }} 
+    <link href="{{ url_for('static', filename='styles/mos.css') }}" rel="stylesheet"> 
+{% endblock %} 
+{% block content %}
+
+<div id="audio-number">
+    <h1> Áudio 1 de 100</h1>
+</div>
+
+<div id="audio-container">
+    <h2>Áudio de Referência</h2>
+
+    <audio id="audio" controls>
+      <source src="{{ url_for('static', filename=audio_file) }}" type="audio/wav" media="(min-width: 900px)"
+        preload />
+    </audio>
+</div>
+
+<div id="grade-container">
+    <h3> Em uma escala de 1 a 5, o quão natural é o áudio de referência? </h3>
+
+    <div class="grade">
+        <h3> 1 </h3>
+        <label for="1">
+            <input type="radio" class="radio-answer" id="1" name="radio-group">
+        </label>
+    </div>
+
+    <div class="grade">
+        <h3> 2 </h3>
+        <label for="2">
+            <input type="radio" class="radio-answer" id="2" name="radio-group">
+        </label>
+    </div>
+
+    <div class="grade">
+        <h3> 3 </h3>
+        <label for="3">
+            <input type="radio" class="radio-answer" id="3" name="radio-group">
+        </label>
+    </div>
+
+    <div class="grade">
+        <h3> 4 </h3>
+        <label for="4">
+            <input type="radio" class="radio-answer" id="4" name="radio-group">
+        </label>
+    </div>
+
+    <div class="grade">
+        <h3> 5 </h3>
+        <label for="5">
+            <input type="radio" class="radio-answer" id="5" name="radio-group">
+        </label>
+    </div>  
+
+    <div id="explanation">
+        <p> 1 = Completamente não natural </p>
+        <p> 2 = Majoritariamente não natural </p>
+        <p> 3 = Neutro </p>
+        <p> 4 = Majoritariamente natural </p>
+        <p> 5 = Completamente natural </p>
+    </div>
+</div>
+
+<div id="button-container">
+    <button id="send-button" class="button" onclick=""> Enviar </button>
+</div>
+
+{% endblock %}

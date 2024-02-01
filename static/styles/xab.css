@@ -1,0 +1,31 @@
+#audio-number {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#audio-container-x {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#container-test-audios {
+    text-align: center;
+}
+
+#audio-container-a, #audio-container-b {
+    display: inline-block;
+}
+
+#question {
+    text-align: center;
+}
+
+.answer {
+    text-align: center;
+    display: inline-block;
+}
+
+.answer input {
+    min-width: 40px;
+    min-height: 40px;
+}
