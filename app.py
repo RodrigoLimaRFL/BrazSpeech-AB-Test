@@ -1,0 +1,1 @@
+from BrazSpeech-AB-Test import create_app
