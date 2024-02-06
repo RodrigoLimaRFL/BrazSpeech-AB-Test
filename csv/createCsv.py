@@ -1,25 +1,33 @@
 import pandas
 import random
+import os
 
+my_path = os.path.abspath(os.path.dirname(__file__))
 
 random.seed(1337)
 
 
-def create_csv(dataframe, path):
-    """_summary_
+def create_csv(dataframe: pandas.DataFrame, path: str):
+    """Creates a csv file with the given dataframe
 
     Args:
-        dataframe (_type_): _description_
-        path (_type_): _description_
+        dataframe (pandas.DataFrame): Dataframe to be written to the csv file
+        path (str): Path to the csv file. Must include the file name and extension.
     """
     dataframe.sort_values(by=['email'], inplace=True)
-
-    #print(dataframe)
 
     dataframe.to_csv(path, index=False)
 
 
-def add_to_mos_list(emails, lenght, audio_files, row_list):
+def add_to_mos_list(emails: list[str], lenght: int, audio_files: list[str], row_list: list[str]):
+    """Adds the given emails and audio files to the row list, that will be used to create the dataframe for the MOS test
+
+    Args:
+        emails (list[str]): List of emails to be added to the row list. Please verify if the accent is condizent with the audio files.
+        lenght (int): Lenght of the test that is to be given to each student. Total row list size will be lenght * len(emails)
+        audio_files (list[str]): List of audio files to be added to the row list. Please verify if the accent is condizent with the emails.
+        row_list (list[str]): List of rows to be added to the dataframe
+    """
     for i in range(lenght):
         if len(audio_files) == 0:
             break
@@ -28,7 +36,17 @@ def add_to_mos_list(emails, lenght, audio_files, row_list):
         audio_files.pop(0)
 
 
-def add_to_xab_natural(emails, lenght, audio_files_correct, audio_files_wrong, accent_right, row_list):
+def add_to_xab_natural(emails: list[str], lenght: int, audio_files_correct: list[str], audio_files_wrong: list[str], accent_right: str, row_list: list[str]):
+    """Adds the given emails and audio files to the row list, that will be used to create the dataframe for the XAB test, where the X audio is natural.
+
+    Args:
+        emails (list[str]): List of emails to be added to the row list. Please verify if the accent is condizent with the audio files and accent.
+        lenght (int): Lenght of the test that is to be given to each student. Total row list size will be lenght * len(emails).
+        audio_files_correct (list[str]): List of audio files with the right accent. Please verify if the accent is condizent with the emails.
+        audio_files_wrong (list[str]): List of audio files with the wrong accent.
+        accent_right (str): State acronym (lowercase) of the right accent.
+        row_list (list[str]): List of rows to be added to the dataframe.
+    """
     for i in range(lenght):
         if len(audio_files_correct) == 0 or len(audio_files_wrong) == 0:
             break
@@ -46,7 +64,20 @@ def add_to_xab_natural(emails, lenght, audio_files_correct, audio_files_wrong, a
         audio_files_wrong.pop(0)
 
 
-def add_to_xab_synth(emails, lenght, audio_files_synth, audio_files_correct, audio_files_wrong, accent_right, row_list):
+def add_to_xab_synth(emails: list[str], lenght: int, audio_files_synth: list[str], audio_files_correct: list[str], audio_files_wrong: list[str], accent_right: str, row_list: list[str]):
+    """WARNING: legacy function, not being currently used for the article as of 2023-02-06. Only use if the article conditions change.
+    
+    Adds the given emails and audio files to the row list, that will be used to create the dataframe for the XAB test, where the X audio is synthetic.
+
+    Args:
+        emails (list[str]): List of emails to be added to the row list. Please verify if the accent is condizent with the audio files and accent.
+        lenght (int): Lenght of the test that is to be given to each student. Total row list size will be lenght * len(emails).
+        audio_files_synth (list[str]): List of synthetic audio files. Please verify if the accent is condizent with the emails.
+        audio_files_correct (list[str]): List of audio files with the right accent. Please verify if the accent is condizent with the emails.
+        audio_files_wrong (list[str]): List of audio files with the wrong accent.
+        accent_right (str): State acronym (lowercase) of the right accent.
+        row_list (list[str]): List of rows to be added to the dataframe.
+    """
     for i in range(lenght):
         if len(audio_files_synth) == 0 or len(audio_files_correct) == 0 or len(audio_files_wrong) == 0:
             break
@@ -72,6 +103,7 @@ emails_al = [
     'eliel.costa@fale.ufal.br',
     'pedro.alencar@fale.ufal.br',
     'jin.gomes@fale.ufal.br',
+    'guico21@usp.br',
 ]
 
 emails_sp = [
@@ -84,15 +116,17 @@ emails_sp = [
 
 emails_go = [
     'joaosouza2@discente.ufg.br',
+    'arnaldocan@gmail.com',
+    'sandra@icmc.usp.br',
 ]
 
 
 # variables for the csv files being read
-al_path = pandas.read_csv("/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/csv/metadata_coqui_bral_test.csv",
+al_path = pandas.read_csv(my_path + "/metadata_coqui_bral_test.csv",
                      sep='\t', encoding='utf-8')
-go_path = pandas.read_csv("/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/csv/metadata_coqui_brgo_test.csv",
+go_path = pandas.read_csv(my_path + "/metadata_coqui_brgo_test.csv",
                      sep='\t', encoding='utf-8')
-sp_path = pandas.read_csv("/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/csv/metadata_coqui_brsp_test.csv",
+sp_path = pandas.read_csv(my_path + "/metadata_coqui_brsp_test.csv",
                      sep='\t', encoding='utf-8')
 
 
@@ -117,6 +151,15 @@ sp_path_arr = sp_path['audio_file'].tolist()
 # go_path_synth_arr = go_path_synth['audio_file'].tolist()
 # sp_path_synth_arr = sp_path_synth['audio_file'].tolist()
 
+for i in range(len(al_path_arr)):
+    al_path_arr[i] = "http://143.107.183.175:14888/static/Dataset/" + al_path_arr[i]
+
+for i in range(len(go_path_arr)):
+    go_path_arr[i] = "http://143.107.183.175:14888/static/Dataset/" + go_path_arr[i]
+
+for i in range(len(sp_path_arr)):
+    sp_path_arr[i] = "http://143.107.183.175:14888/static/Dataset/" + sp_path_arr[i]
+
 
 # randomize the path arrays
 random.shuffle(al_path_arr)
@@ -136,7 +179,7 @@ row_list_mos = []
 al_path_synth_arr = []
 go_path_synth_arr = []
 sp_path_synth_arr = []
-synth_path = "/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/static/audio/audio_x.wav"
+synth_path = "/static/audio/audio_x.wav"
 
 
 # temp loops, remove later
@@ -164,7 +207,7 @@ add_to_mos_list(emails_sp, sp_one_fifth_original_size, sp_path_synth_arr, row_li
 
 
 assignment_mos = pandas.DataFrame(row_list_mos, columns=['email', 'audio_file', 'answer'])
-create_csv(assignment_mos, '/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/csv/assignment_mos.csv')
+create_csv(assignment_mos, my_path + '/assignment_mos.csv')
 
 
 no_al_paths = []
@@ -202,4 +245,4 @@ add_to_xab_synth(emails_sp, sp_one_fifth_original_size, sp_path_synth_arr, sp_pa
 random.shuffle(row_list_xab)
 assignment_xab = pandas.DataFrame(row_list_xab, columns=['email', 'audio_file_x', 'audio_file_a', 'audio_file_b',
                                                       'sotaque_x', 'sotaque_a', 'sotaque_b', 'natural', 'answer'])
-create_csv(assignment_xab, '/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/csv/assignment_xab.csv')
+create_csv(assignment_xab, my_path + '/assignment_xab.csv')

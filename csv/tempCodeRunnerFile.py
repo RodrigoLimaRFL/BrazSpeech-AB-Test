@@ -1,1 +1,1 @@
-print(len(sp_path_arr))
+/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/static/audio/audio_x.wav

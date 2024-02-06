@@ -1,31 +1,3 @@
-class loginCredential {
-    constructor(username, password) {
-        this.username = username;
-        this.password = password;
-    }
-}
-
-/*let credentials;
-
-fetch("/read_json")
-    .then(response => {
-        if (!response.ok){ 
-            throw new Error("HTTP error " + response.status);
-        }
-        return response.json();
-    })
-    // After reading the JSON file, create an array of login credentials
-    .then(data => {
-        let accounts = data.accounts;
-        credentials = new Array();
-        for(let i = 0; i < accounts.length; i++){
-            credentials.push(new loginCredential(accounts[i].username, accounts[i].password));
-        }
-        console.log(credentials);
-    })
-    .catch(err => console.log(err));
-*/
-
 // Function to handle the login form submission
 function handleSubmit(event) {
     event.preventDefault();
