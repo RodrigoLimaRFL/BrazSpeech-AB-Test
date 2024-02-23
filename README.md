@@ -77,5 +77,5 @@ flask --app BrazSpeech_AB_Test run
 <p> To deploy to a production server, run the folloowing code: </p>
 
 ```
-uwsgi --http [IP_ADDRESS]:[PORT] --mastes -p [NUMBER_OF_PROCESSES] -w app:app
+uwsgi --http [IP_ADDRESS]:[PORT] --master -p [NUMBER_OF_PROCESSES] -w app:app
 ```
