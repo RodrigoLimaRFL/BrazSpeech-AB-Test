@@ -24,9 +24,53 @@ cd ..
 pip install -r requirements.txt
 ```
 
-<h4> 4. Run app </h4>
+<h3> 4. Add credentials </h3>
 
 ```
+cd static
+mkdir json
+cd json
+touch credentials.json
+```
+<p> Then, add all desired credentials to the json file, as per this example: </p>
+
+```
+{
+    "accounts": [
+        {
+            "username": "email@email.com",
+            "password": "password",
+            "xab_number": 1,
+            "mos_number": 1
+        },
+        {
+            "username": "email2@email.com",
+            "password": "password2",
+            "xab_number": 2,
+            "mos_number": 2
+        },
+    ]
+}
+```
+
+<p> "username" refers to the users email, "password" refers to their password, "xab_number" refers to their current ABX test and "mos_number" refers to their current MOS questionaire. </p>
+
+<h3> 5. Create csv </h3>
+
+```
+cd ../../csv
+```
+
+Within the folder, edit the createCsv.py file with the current credentials and desired number of tests, then run with:
+
+```
+python createCSV.py
+```
+
+<h3> 6. Run app </h4>
+
+```
+cd ../..
 flask --app BrazSpeech_AB_Test run
 ```
 
