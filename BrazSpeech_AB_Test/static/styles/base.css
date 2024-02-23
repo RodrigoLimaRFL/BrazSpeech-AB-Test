@@ -1,9 +1,23 @@
+* {
+    background-color: #1a1a1a;
+    color: #b5e853;
+}
+
 header {
-    background-color: grey;
     color: white;
     padding: 20px;
     text-align: center;
     margin-bottom: 50px;
+}
+
+button {
+    background-color: white;
+    color: #1a1a1a;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 footer {
@@ -11,4 +25,8 @@ footer {
     padding: 20px;
     text-align: center;
     margin-top: 50px;
+}
+
+footer p {
+    background-color: #00e5ff;
 }
