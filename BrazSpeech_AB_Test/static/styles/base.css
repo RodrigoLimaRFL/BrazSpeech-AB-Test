@@ -3,6 +3,14 @@
     color: #b5e853;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
 header {
     color: white;
     padding: 20px;
@@ -21,12 +29,14 @@ button {
 }
 
 footer {
-    background-color: #00e5ff;
+    background-color: white;
     padding: 20px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: auto;
 }
 
-footer p {
-    background-color: #00e5ff;
+footer img {
+    max-height: 50px;
+    background-color: white;
+    padding: 20px;
 }
