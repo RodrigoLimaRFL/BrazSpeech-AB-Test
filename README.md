@@ -27,7 +27,7 @@ pip install -r requirements.txt
 <h3> 4. Add credentials </h3>
 
 ```
-cd static
+cd BrazSpeech_AB_Test/static
 mkdir json
 cd json
 touch credentials.json
