@@ -64,7 +64,7 @@ cd ../../csv
 Within the folder, edit the createCsv.py file with the current credentials and desired number of tests, then run with:
 
 ```
-python createCSV.py
+python createCsv.py
 ```
 
 <h3> 6. Run app </h4>
