@@ -293,20 +293,21 @@ print(f"Database version: {version}")
 
 # list of emails for each region
 emails_al = [
-    'juliogaldino@usp.br',
-    'maryannehenrique@gmail.com',
-    'eliel.costa@fale.ufal.br',
-    'pedro.alencar@fale.ufal.br',
+    'eliel.costa@false.ufal.br',
     'jin.gomes@fale.ufal.br',
-    'guico21@usp.br',
+    'joaosouza2@discente.ufg.br'
+    'maryannehenrique@gmail.com',
+    'pedro.alencar@fale.ufal.br',
 ]
 
 emails_sp = [
-    'jess.laureano@usp.br',
-    'rianpf@usp.br',
     'gisellamatrone@usp.br',
-    'thalesgmenis@usp.br',
+    'gustavowlopes@usp.br',
+    'jess.laureano@usp.br',
     'leoishida@usp.br',
+    'rianpf@usp.br',
+    'thalesgmenis@usp.br',
+    'guico21@usp.br',
     'arnaldocan@gmail.com',
     'sandra@icmc.usp.br',
 ]
