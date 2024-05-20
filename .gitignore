@@ -7,8 +7,6 @@ __pycache__/
 *.so
 
 # csv files
-BrazSpeech_AB_Test/csv/assignment_mos.csv
-BrazSpeech_AB_Test/csv/assignment_xab.csv
 
 # login data
 BrazSpeech_AB_Test/static/json/credentials.json
