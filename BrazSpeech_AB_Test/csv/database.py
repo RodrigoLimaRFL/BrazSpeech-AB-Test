@@ -73,8 +73,8 @@ class Database:
             FROM Audio a
             JOIN Dataset d ON a.id = d.audio_id
             WHERE a.corpus_id = 2
-            AND d.end_time - d.start_time > 9
-            AND d.end_time - d.start_time < 11
+            AND d.end_time - d.start_time > 4
+            AND d.end_time - d.start_time < 6
         ) AS ranked
         WHERE row_num <= 5;
         """

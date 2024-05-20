@@ -338,16 +338,15 @@ FiveSecondAudiosSP = db.fiveSecAudiosSP()['file_path'].tolist()
 for i in range(len(FiveSecondAudiosSP)):
     FiveSecondAudiosSP[i] = "http://143.107.183.175:14888/static/Dataset/" + FiveSecondAudiosSP[i]
 
-def get_absolute_paths(directory):
-    absolute_paths = []
+def get_relative_paths(directory):
+    relative_paths = []
     for dirpath, _, filenames in os.walk(directory):
         for filename in filenames:
-            absolute_path = os.path.abspath(os.path.join(dirpath, filename))
-            absolute_paths.append(absolute_path)
-    return absolute_paths
+            relative_path = "/static/audio/NURC-RE_5-sec/" + filename
+            relative_paths.append(relative_path)
+    return relative_paths
 
-FiveSecondAudiosRE = get_absolute_paths('NURC-RE_5-sec')
-print(FiveSecondAudiosRE)
+FiveSecondAudiosRE = get_relative_paths('/home/rodrigo/Documents/GitHub/BrazSpeech-AB-Test/BrazSpeech_AB_Test/static/audio/NURC-RE_5-sec')
 
 # arrays with each audio path
 al_path_arr = al_path['audio_file'].tolist()
