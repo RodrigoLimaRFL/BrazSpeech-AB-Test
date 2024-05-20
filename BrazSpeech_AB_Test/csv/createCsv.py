@@ -1,6 +1,7 @@
 import pandas
 import random
 import os
+from database import Database
 
 my_path = os.path.abspath(os.path.dirname(__file__))
 
@@ -14,7 +15,7 @@ SYNTH_AMOUNT_MOS_PER_ACCENT = 12
 SYNTH_AMOUNT_TOTAL_PER_ACCENT = 48
 
 # OBS: THE VALUES FOR THE ARTICLE WILL BE 18, 12, 30
-NATURAL_AMOUNT_XAB_PER_ACCENT = 18
+NATURAL_AMOUNT_XAB_PER_ACCENT = 16
 NATURAL_AMOUNT_MOS_PER_ACCENT = 12
 NATURAL_AMOUNT_TOTAL_PER_ACCENT = 30
 
@@ -108,7 +109,7 @@ def add_to_xab_x_natural_one_synth(emails: list[str], lenght: int, audio_files_c
         row_list (list[str]): List of rows to be added to the dataframe.
     """
     for i in range(lenght):
-        if len(audio_files_correct) == 0 or len(audio_files_wrong) == 0 or i >= SYNTH_AMOUNT_XAB_PER_ACCENT:
+        if len(audio_files_correct) == 0 or len(audio_files_wrong) == 0 or i >= NATURAL_AMOUNT_XAB_PER_ACCENT:
             break
         rng = random.randint(0, 1)
         for email in emails:
@@ -131,7 +132,7 @@ def add_to_xab_x_synth_two_natural(emails: list[str], lenght: int, audio_files_s
     where the X audio is synthetic and both a and b are natural.
 
     Args:
-        emails (list[str]): List of emails to be added to the row list. Please verify if the accent is condizent with the audio files and accent.
+        emails (list[str]): List of emails to be added to the row list.
         lenght (int): Lenght of the test that is to be given to each student. Total row list size will be lenght * len(emails).
         audio_files_synth (list[str]): List of synthetic audio files. Please verify if the accent is condizent with the emails.
         audio_files_correct (list[str]): List of audio files with the right accent. Please verify if the accent is condizent with the emails.
@@ -156,6 +157,139 @@ def add_to_xab_x_synth_two_natural(emails: list[str], lenght: int, audio_files_s
         audio_files_wrong.pop(0)
 
 
+def same_speaker(audio_file_a: str, audio_file_b: str):
+    audio_file_a.split('/')
+    audio_file_b.split('/')
+
+    if len(audio_file_a) == 0 or len(audio_file_b) == 0:
+        print("Error: audio file path is empty")
+        return False
+    
+    return audio_file_a[7] == audio_file_b[7]
+
+
+def add_to_xab_x_natural_two_natural_sp(emails: list[str], lenght: int, audio_files_sp: list[str], audio_files_al: list[str], row_list: list[str]):
+    """Adds the given emails and audio files to the row list, that will be used to create the dataframe for the XAB test,
+    where the X audio is natural and both a and b are natural.
+
+    Args:
+        emails (list[str]): List of emails to be added to the row list. 
+        lenght (int): Lenght of the test that is to be given to each student. Total row list size will be lenght * len(emails).
+        audio_files_sp(list[str]): List of audio files with the accent of the state of São Paulo. Please verify if the accent is condizent with the emails.
+        audio_files_al(list[str]): List of audio files with the accent of the state of Alagoas. Please verify if the accent is condizent with the emails.
+        row_list (list[str]): List of rows to be added to the dataframe.
+    """
+
+    given_sp_files = []
+    given_al_files = []
+
+    for i in range(lenght):
+        random_sp_file = random.randint(0, audio_files_sp.__len__() - 1)
+
+        given_sp_files.append(random_sp_file)
+
+        second_sp_file = None
+
+        while True:
+            if second_sp_file is None or second_sp_file == random_sp_file:
+                second_sp_file = random.randint(0, audio_files_sp.__len__() - 1)
+                break
+
+        given_sp_files.append(second_sp_file)
+
+        random_al_file = random.randint(0, audio_files_al.__len__() - 1)
+
+        given_al_files.append(random_al_file)
+
+        second_al_file = None
+
+        while True:
+            if second_al_file is None or second_al_file == random_al_file:
+                second_al_file = random.randint(0, audio_files_al.__len__() - 1)
+                break
+
+        given_al_files.append(second_al_file)
+
+        rng = random.randint(0, 1)
+
+        for email in emails:
+            match rng:
+                case 0:
+                    row_list.append([email, audio_files_sp[random_sp_file], audio_files_sp[second_sp_file], 
+                                     audio_files_al[random_al_file], 'sp', 'sp', 're', 'n', ''])
+                case 1:
+                    row_list.append([email, audio_files_sp[random_sp_file], audio_files_al[random_al_file], 
+                                     audio_files_sp[second_sp_file], 'sp', 're', 'sp', 'n', ''])
+                case _:
+                    pass
+        
+        audio_files_sp.pop(random_sp_file)
+        audio_files_sp.pop(second_sp_file)
+        audio_files_al.pop(random_al_file)
+
+
+def add_to_xab_x_natural_two_natural_al(emails: list[str], lenght: int, audio_files_sp: list[str], audio_files_al: list[str], row_list: list[str]):
+    """Adds the given emails and audio files to the row list, that will be used to create the dataframe for the XAB test,
+
+    Args:
+        emails (list[str]): List of emails to be added to the row list.
+        lenght (int): Lenght of the test that is to be given to each student. Total row list size will be lenght * len(emails).
+        audio_files_sp (list[str]): List of audio files with the accent of the state of São Paulo. Please verify if the accent is condizent with the emails.
+        audio_files_al (list[str]): List of audio files with the accent of the state of Alagoas. Please verify if the accent is condizent with the emails.
+        row_list (list[str]): List of rows to be added to the dataframe.
+    """
+
+    given_sp_files = []
+    given_al_files = []
+
+    for i in range(lenght):
+        random_sp_file = random.randint(0, audio_files_sp.__len__() - 1)
+
+        given_sp_files.append(random_sp_file)
+
+        second_sp_file = None
+
+        while True:
+            if second_sp_file is None or second_sp_file == random_sp_file:
+                second_sp_file = random.randint(0, audio_files_sp.__len__() - 1)
+                break
+
+        given_sp_files.append(second_sp_file)
+
+        random_al_file = random.randint(0, audio_files_al.__len__() - 1)
+
+        given_al_files.append(random_al_file)
+
+        second_al_file = None
+
+        while True:
+            if second_al_file is None or second_al_file == random_al_file:
+                second_al_file = random.randint(0, audio_files_al.__len__() - 1)
+                break
+        
+        given_al_files.append(second_al_file)
+
+        rng = random.randint(0, 1)
+
+        for email in emails:
+            match rng:
+                case 0:
+                    row_list.append([email, audio_files_al[random_al_file], audio_files_al[second_al_file], 
+                                     audio_files_sp[random_sp_file], 're', 're', 'sp', 'n', ''])
+                case 1:
+                    row_list.append([email, audio_files_al[random_al_file], audio_files_sp[random_sp_file], 
+                                     audio_files_al[second_al_file], 're', 'sp', 're', 'n', ''])
+                case _:
+                    pass
+        
+        audio_files_sp.pop(random_sp_file)
+        audio_files_sp.pop(second_sp_file)
+        audio_files_al.pop(random_al_file)
+
+
+db = Database()
+version = db._run_query("SELECT VERSION()")
+print(f"Database version: {version}")
 
 # list of emails for each region
 emails_al = [
@@ -182,9 +316,9 @@ emails_go = [
 
 
 # variables for the csv files being read
-al_path = pandas.read_csv(my_path + "/metadata_coqui_bral_test.csv",
+al_path = pandas.read_csv(my_path + "/metadata_coqui_bral.csv",
                      sep='\t', encoding='utf-8')
-sp_path = pandas.read_csv(my_path + "/metadata_coqui_brsp_test.csv",
+sp_path = pandas.read_csv(my_path + "/metadata_coqui_brsp.csv",
                      sep='\t', encoding='utf-8')
 
 
@@ -199,6 +333,21 @@ assignment_xab = pandas.DataFrame(columns=['email', 'audio_file_x', 'audio_file_
 
 assignment_mos = pandas.DataFrame(columns=['email', 'audio_file', 'natural', 'answer'])
 
+FiveSecondAudiosSP = db.fiveSecAudiosSP()['file_path'].tolist()
+
+for i in range(len(FiveSecondAudiosSP)):
+    FiveSecondAudiosSP[i] = "http://143.107.183.175:14888/static/Dataset/" + FiveSecondAudiosSP[i]
+
+def get_absolute_paths(directory):
+    absolute_paths = []
+    for dirpath, _, filenames in os.walk(directory):
+        for filename in filenames:
+            absolute_path = os.path.abspath(os.path.join(dirpath, filename))
+            absolute_paths.append(absolute_path)
+    return absolute_paths
+
+FiveSecondAudiosRE = get_absolute_paths('NURC-RE_5-sec')
+print(FiveSecondAudiosRE)
 
 # arrays with each audio path
 al_path_arr = al_path['audio_file'].tolist()
@@ -283,11 +432,12 @@ while len(half_of_all_lists) > 0:
     elif half_of_all_lists[0][1] != 'sp':
         no_sp_paths.append(half_of_all_lists.pop(0))
 
-
 # add xab tests
-add_to_xab_x_natural_two_synth(emails_al + emails_sp, NATURAL_AMOUNT_XAB_PER_ACCENT, al_path_arr, al_path_synth_arr, no_al_paths, 'al', row_list_xab)
-add_to_xab_x_natural_two_synth(emails_al + emails_sp, NATURAL_AMOUNT_XAB_PER_ACCENT, sp_path_arr, sp_path_synth_arr, no_sp_paths, 'sp', row_list_xab)
-
+#add_to_xab_x_natural_two_synth(emails_al + emails_sp, NATURAL_AMOUNT_XAB_PER_ACCENT, al_path_arr, al_path_synth_arr, no_al_paths, 'al', row_list_xab)
+#add_to_xab_x_natural_two_synth(emails_al + emails_sp, NATURAL_AMOUNT_XAB_PER_ACCENT, sp_path_arr, sp_path_synth_arr, no_sp_paths, 'sp', row_list_xab)
+#add_to_xab_x_natural_two_natural(emails_al + emails_sp, NATURAL_AMOUNT_XAB_PER_ACCENT, sp_path_arr, al_path_arr, row_list_xab)
+add_to_xab_x_natural_two_natural_sp(emails_al + emails_sp, NATURAL_AMOUNT_XAB_PER_ACCENT, FiveSecondAudiosSP, FiveSecondAudiosRE, row_list_xab)
+add_to_xab_x_natural_two_natural_al(emails_al + emails_sp, NATURAL_AMOUNT_XAB_PER_ACCENT, FiveSecondAudiosSP, FiveSecondAudiosRE, row_list_xab)
 
 random.shuffle(row_list_xab)
 assignment_xab = pandas.DataFrame(row_list_xab, columns=['email', 'audio_file_x', 'audio_file_a', 'audio_file_b',
