@@ -539,7 +539,7 @@ MupeHomemSpXSp = [
     "data/mupe/Antonio Rodrigues Filho [nCPO__rTdnM]/Antonio Rodrigues Filho [nCPO__rTdnM]_7948.697_7969.983.wav",
     "data/mupe/PC_MA_HV264_Antonio_Carlos_da_Silva_Sales/audios/1098_PC_MA_HV264_Antonio_Carlos_da_Silva_Sales_6772.226_6797.317.wav",
     "data/mupe/PC_MA_HV221_Geraldo_Garducci_Junior/audios/1812_PC_MA_HV221_Geraldo Garducci Junior_10867.872_10894.807999999999.wav",
-    "data/mupe/PC_MA_HV268_Eduardo_Santos_(Netinho)/audios/0653_PC_MA_HV268_Eduardo_Santos_(Netinho)_4419.039000000001_4445.072.wav"
+    "data/mupe/PC_MA_HV268_Eduardo_Santos_(Netinho)/audios/0653_PC_MA_HV268_Eduardo_Santos_(Netinho)_4419.039000000001_4445.072.wav",
     "data/mupe/PC_MA_HV144_Gilberto Dupas/audios/0606_PC_MA_HV144_Gilberto Dupas_4277.403_4296.549.wav",
     "data/mupe/PC_MA_HV228_Orlando_D'Agostinho/audios/0274_PC_MA_HV228_Orlando D'Agostinho_1231.46_1256.424.wav",
     "data/mupe/PC_MA_HV228_Orlando_D'Agostinho/audios/0274_PC_MA_HV228_Orlando D'Agostinho_1231.46_1256.424.wav",
@@ -604,13 +604,13 @@ MupeHomemPeXPe = [
     "data/mupe/PC_MA_HV211_Sebastião_Biano/audios/0800_PC_MA_HV211_Sebastião Biano_3731.645_3759.954.wav",
     "data/mupe/PC_MA_HV187_Antonio de Amorim Costa/audios/1098_PC_MA_HV187_Antonio de Amorim Costa_6389.062_6417.922.wav",
     "data/mupe/Gustavo Laureano da Silva/audios/0000_Gustavo Laureano da Silva_7.87_36.70.wav",
-    "data/mupe/PC_MA_HV243_Euro_Ribeiro_da_Silva/audios/0161_PC_MA_HV243_Euro Ribeiro da Silva_850.6510000000001_875.35.wav"
+    "data/mupe/PC_MA_HV243_Euro_Ribeiro_da_Silva/audios/0161_PC_MA_HV243_Euro_Ribeiro_da_Silva_850.6510000000001_875.35.wav"
 ]
 
 MupeHomemPeAbPe = [
     "data/mupe/PC_MA_HV211_Sebastião_Biano/audios/1074_PC_MA_HV211_Sebastião Biano_5172.655000000001_5196.613.wav",
     "data/mupe/PC_MA_HV250_Severino_José_de_Albuquerque/audios/0699_PC_MA_HV250_Severino José de Albuquerque_3378.79_3407.8689999999997.wav",
-    "data/mupe/PC_MA_HV243_Euro_Ribeiro_da_Silva/audios/0893_PC_MA_HV243_Euro Ribeiro da Silva_4509.562_4533.8279999999995.wav",
+    "data/mupe/PC_MA_HV243_Euro_Ribeiro_da_Silva/audios/0893_PC_MA_HV243_Euro_Ribeiro_da_Silva_4509.562_4533.8279999999995.wav",
     "data/mupe/PC_MA_HV187_Antonio de Amorim Costa/audios/1013_PC_MA_HV187_Antonio de Amorim Costa_5937.125_5963.158.wav",
     "data/mupe/Gustavo Laureano da Silva/audios/0044_Gustavo Laureano da Silva_232.64_248.83.wav",
 ]
@@ -622,7 +622,7 @@ MupeHomemPeAbSp = [
     "data/mupe/PC_MA_HV211_Sebastião_Biano/audios/1043_PC_MA_HV211_Sebastião Biano_5034.21_5052.5960000000005.wav",
     "data/mupe/PC_MA_HV187_Antonio de Amorim Costa/audios/0698_PC_MA_HV187_Antonio de Amorim Costa_3975.469_3992.017.wav",
     "data/mupe/PC_MA_HV187_Antonio de Amorim Costa/audios/0348_PC_MA_HV187_Antonio de Amorim Costa_1958.458_1977.968.wav",
-    "data/mupe/PC_MA_HV243_Euro_Ribeiro_da_Silva/audios/1200_PC_MA_HV243_Euro Ribeiro da Silva_6098.094_6115.367.wav",
+    "data/mupe/PC_MA_HV243_Euro_Ribeiro_da_Silva/audios/1200_PC_MA_HV243_Euro_Ribeiro_da_Silva_6098.094_6115.367.wav",
     "data/mupe/Gustavo Laureano da Silva/audios/0039_Gustavo Laureano da Silva_193.35_205.95.wav",
     "data/mupe/Gustavo Laureano da Silva/audios/0042_Gustavo Laureano da Silva_218.77_230.32.wav",
 ]

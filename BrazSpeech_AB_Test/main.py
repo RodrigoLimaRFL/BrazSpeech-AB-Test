@@ -90,12 +90,15 @@ def xab():
         if 'user_id' not in session:
             return redirect(url_for('main.login'))
         xab_number = session.get('xab_number', 0)
+        xab_total = get_xab_total(session['user_id'])
+        if xab_number > xab_total:
+            return render_template('test-end.html')
         return render_template('xab.html', 
                             audio_file_x = get_xab_audio_x(session["user_id"], xab_number),
                             audio_file_a = get_xab_audio_a(session["user_id"], xab_number),
                             audio_file_b = get_xab_audio_b(session["user_id"], xab_number),
                             xab_number = xab_number,
-                            xab_total = get_xab_total(session['user_id']),)
+                            xab_total = xab_total,)
     if request.method == 'POST':
         data = request.get_json()
         set_xab_answer(session['user_id'], session['xab_number'], data.get('selectedAudio'))
