@@ -287,6 +287,38 @@ def add_to_xab_x_natural_two_natural_al(emails: list[str], lenght: int, audio_fi
         audio_files_al.pop(random_al_file)
 
 
+
+def extract_name(s: str):
+    # Find the position of the third underscore
+    substring = s.split('/')[2]
+
+    pos1 = substring.find('_')
+    pos2 = substring.find('_', pos1 + 1)
+    pos3 = substring.find('_', pos2 + 1)
+    
+    if pos3 == -1:
+        return substring
+    
+    # Extract and return the substring between the third underscore and the forward slash
+    return substring[pos3:]
+
+
+def ensure_different_elements_by_swapping(list1, list2):
+    n = min(len(list1), len(list2))
+    
+    for i in range(n):
+        # If elements at the same index are the same
+        if extract_name(list1[i]) == extract_name(list2[i]):
+            # Find a new index to swap with that makes list2[i] different from list1[i]
+            swap_index = i
+            while swap_index == i or extract_name(list1[i]) == extract_name(list2[swap_index]):
+                swap_index = random.randint(0, n-1)
+            # Swap the elements in list2
+            list2[i], list2[swap_index] = list2[swap_index], list2[i]
+    
+    return list1, list2
+
+
 def add_to_xab_mupe(emails: list[str], lenght: int, audio_files_x: list[str], audio_files_a: list[str], audio_files_b: list[str], accent_right: str, accent_wrong: str, row_list: list[str]):
     """Adds the given emails and audio files to the row list, that will be used to create the dataframe for the XAB test,
 
@@ -300,6 +332,8 @@ def add_to_xab_mupe(emails: list[str], lenght: int, audio_files_x: list[str], au
         accent_wrong (str): State acronym (lowercase) of the wrong accent.
         row_list (list[str]): List of rows to be added to the dataframe.
     """
+
+    ensure_different_elements_by_swapping(audio_files_x, audio_files_a)
 
     for i in range(lenght):
         if len(audio_files_x) == 0 or len(audio_files_a) == 0 or len(audio_files_b) == 0:
