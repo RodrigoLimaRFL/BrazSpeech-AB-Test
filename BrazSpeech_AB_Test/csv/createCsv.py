@@ -390,23 +390,29 @@ emails_go = [
 ]
 
 all_emails = [
-    'eliel.costa@fale.ufal.br',
-    'gisellamatrone@usp.br',
-    'gustavowlopes@usp.br',
-    'jess.laureano@usp.br',
-    'jin.gomes@fale.ufal.br',
-    'joaosouza2@discente.ufg.br',
-    'leoishida@usp.br',
-    'maryannehenrique@gmail.com',
-    'pedro.alencar@fale.ufal.br',
-    'rianpf@usp.br',
-    'thalesgmenis@usp.br',
-    'guico21@usp.br',
-    'arnaldocan@gmail.com',
-    'sandra@icmc.usp.br',
-    'test'
+    "eliel.costa@fale.ufal.br",
+    "gisellamatrone@usp.br",
+    "gustavowlopes@usp.br",
+    "jess.laureano@usp.br",
+    "jin.gomes@fale.ufal.br",
+    "joaosouza2@discente.ufg.br",
+    "leoishida@usp.br",
+    "maryannehenrique@gmail.com",
+    "pedro.alencar@fale.ufal.br",
+    "rianpf@usp.br",
+    "thalesgmenis@usp.br",
+    "miguel@fale.ufal.br",
+    "juliogaldino@usp.br",
+    "giovana.meloni.craveiro@alumni.usp.br",
+    "flavianesvartman@usp.br",
+    "renan.izaias@usp.br",
+    "carolalves@usp.br",
+    "gustavo_evangelista@usp.br",
+    "guico21@usp.br",
+    "arnaldocan@gmail.com",
+    "sandra@icmc.usp.br",
+    "test"
 ]
-
 
 
 # variables for the csv files being read
