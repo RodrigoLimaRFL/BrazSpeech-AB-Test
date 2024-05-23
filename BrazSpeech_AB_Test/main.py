@@ -74,6 +74,16 @@ def index():
     return redirect(url_for('main.login'))
 
 
+@main.route('/creditos')
+def creditos():
+    return render_template('creditos.html')
+
+
+@main.route('/xab-instructions')
+def xab_instructions():
+    return render_template('xab-instructions.html')
+
+
 @main.route('/xab', methods=['POST', 'GET'])
 def xab():
     if request.method == 'GET':

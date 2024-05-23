@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block head %} {{ super() }} 
+    <link href="{{ url_for('static', filename='styles/creditos.css') }}" rel="stylesheet">
+{% endblock %} 
+{% block content %}
+    <div id="creditos">
+        <h1>BrazSpeech: Subj-EvAudio </h1>
+        <h2> © 2024 ICMC-USP & Tarsila. Implementado por Rodrigo Lima, apoiado por Sidney Leal.
+            Todos sob a orientação dos professores Arnaldo Cândido Júnior e Sandra Aluísio.</h2>
+    </div>
+{% endblock %}

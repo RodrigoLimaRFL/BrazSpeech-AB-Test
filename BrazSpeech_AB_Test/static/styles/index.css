@@ -14,3 +14,7 @@ h1 {
     min-width: 200px;
     margin: 50px
 }
+
+#mos-button {
+    background-color: gray;
+}

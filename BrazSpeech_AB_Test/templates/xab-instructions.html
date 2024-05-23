@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block head %} {{ super() }} 
+    <link href="{{ url_for('static', filename='styles/xab-instructions.css') }}" rel="stylesheet">
+{% endblock %} 
+{% block content %}
+    <div id = "xab-instructions-div">
+        <h1> Instruções para o Teste XAB </h1>
+        <ol>
+            <li> O teste XAB consiste em escolher qual áudio, A ou B, tem o sotaque mais parecido com áudio de referência. </li>
+            <li> É possível tocar os áudios quantas vezes for necessário. </li>
+            <li> Não é permitido voltar após escolher o áudio, então escolha com atenção. </li>
+            <li> Caso deseje parar no meio dos testes, é permitido fechar a aba do navegador. O teste continuará de onde você parou. </li>
+        </ol>
+    </div>
+    <div id = "button-container">
+        <button class="index-button" onclick="window.location.href='/xab'"> Iniciar Teste XAB </button>
+    </div>
+{% endblock %}

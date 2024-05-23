@@ -1,0 +1,25 @@
+#xab-instructions-div {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#button-container {
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+#button-container button {
+    font-size: large;
+    min-height: 50px;
+    min-width: 200px;
+    margin: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    font-size: larger;
+    margin-top: 10px;
+}
